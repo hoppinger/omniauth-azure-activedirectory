@@ -86,6 +86,7 @@ module OmniAuth
       def callback_phase
         error = request.params['error_reason'] || request.params['error']
         fail(OAuthError, error) if error
+        puts request.params.inspect
         @session_state = request.params['session_state']
         @id_token = request.params['id_token']
         @code = request.params['code']
